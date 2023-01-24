@@ -1,0 +1,32 @@
+<mat-sidenav-container class="container">
+   <mat-sidenav #sidebar mode='side' opened>
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar style="background-color: white;">
+                    <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
+                    <div class="box">
+                        <span>{{username}}</span>
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>arrow_drop_down</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="update()" *ngIf="role!='MANAGER'">Profil</button>
+                        <button mat-menu-item *ngIf="role=='MANAGER'" (click)="getall()">Settings</button>
+                        <button mat-menu-item (click)="Logout()">Logout</button>
+                      </mat-menu>
+                    </div>
+                </mat-toolbar>
+                <mat-toolbar-row>
+                    <span></span>
+                  </mat-toolbar-row>
+                
+            </div>
+            <div class="main">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

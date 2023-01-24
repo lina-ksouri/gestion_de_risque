@@ -1,0 +1,78 @@
+<div class="body"> </div>
+<div  class='container2'>
+  <div class="header" >
+  <img src="/../assets/GAT.png" alt="GAT" >
+  <br>
+  <h3>A u j o u r d ' h u i &nbsp;&nbsp;&nbsp;&nbsp;   P o u r &nbsp;&nbsp;&nbsp;&nbsp;   D e m a i n</h3>
+  
+</div>
+
+  <div class="cont">
+    <div class="form sign-in">
+      <form  (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+      <h2>Join Us!</h2>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': f.submitted && !name.valid}">
+      <label>
+        <span>Full Name</span>
+        <input type="text" name="name"  id="name" [(ngModel)]="user.name" #name="ngModel" required/>
+        <div class="alert alert-danger" *ngIf="f.submitted && !name.valid">
+          Full name is required.
+        </div>
+      </label>
+    </div>
+      <div class="form-group" [ngClass]="{'has-error': f.submitted && !username.valid}">
+      <label>
+        <span>Username</span>
+        <input type="text" name="username" id="username" [(ngModel)]="user.username" #username="ngModel" required/>
+        <div class="alert alert-danger" *ngIf="f.submitted && !username.valid">
+          An valid username is required.
+        </div>
+      </label>
+    </div>
+      <div class="form-group" [ngClass]="{'has-error': f.submitted && !email.valid}">
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" required/>
+          <div class="alert alert-danger" *ngIf="f.submitted && !email.valid">
+            An valid email is required.
+          </div>
+        </label>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': f.submitted && !phone.valid}">
+        <label>
+          <span>Phone</span>
+          <input type="tel" name="phone" id="phone" [(ngModel)]="user.phone" #phone="ngModel" />
+          <div class="alert alert-danger" *ngIf="f.submitted && !phone.valid">
+            An valid phone is required.
+          </div>
+        </label>
+      </div>
+        <div class="form-group" [ngClass]="{'has-error': f.submitted && !password.valid}">
+      <label>
+        <span>Password</span>
+        <input type="password" name="password" id="password" [(ngModel)]="user.password" #password="ngModel" required/>
+        <div class="alert alert-danger" *ngIf="f.submitted && !password.valid">
+          Password is required.
+        </div>
+      </label>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': f.submitted && !code.valid}">
+          <label>
+            <span>Code</span>
+            <input type="password" name="code" id="code" [(ngModel)]="user.role"  #code="ngModel" required/>
+            <div class="alert alert-danger" *ngIf="f.submitted && !code.valid">
+              Code is required.
+            </div>
+          </label>
+            </div>
+      <button type="submit" class="submit" >Sign Up</button>
+      <p style="color:white;">NB*: Default value of code : EMPLOYEE</p>
+    </form>
+    <HR NOSHADE>
+      <p class="signup">If you already has an account just <a [routerLink]="['/login']">Sign in!</a></p>
+    </div>
+</div>
+

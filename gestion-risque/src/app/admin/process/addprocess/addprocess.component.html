@@ -1,0 +1,60 @@
+<mat-card style="width:1100px;margin-left:auto; margin-right:auto;">
+    <br>
+    <h1 style="margin-bottom: 50px;">New process</h1>
+    <br>
+    <br>
+          <form  #processForm="ngForm">
+                <div style="margin-bottom: 30px;">
+                    <label for="name" style="margin-right: 60px;  margin-left: 40px;">Name*</label>
+                    <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="process.name"  class="form-control"  id="name"   name="name"  required #name="ngModel">
+                    <label for="name" style="margin-right: 35px;  margin-left: 200px;">Owner*</label>
+                    <select  style="width: 320px; height: 20px;" [(ngModel)]="process.owner"  class="form-control"  id="owner"   name="owner" >
+                        <option label="--select something --"></option>
+                        <option *ngFor="let c of user" [ngValue]="c">{{c.name}}</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <label for="name" style="margin-right: 70px;  margin-left: 40px;">Level</label>
+                    <select (change)="getLevel(process.level)" style="width: 320px; height: 20px;" [(ngModel)]="process.level"  class="form-control"  id="level"   name="level" >
+                        <option label="--select something --"></option>
+                        <option value="Process">Level 1</option>
+                        <option value="Procedure">Level 2</option>
+                        <option value="Operation">Level 3</option>
+                    </select>
+                        <!--option *ngFor="let c of level" [ngValue]="c">{{c.labelang}}</option>
+                    </select>  
+                    <button mat-icon-button (click)="openDialog()">
+                        <mat-icon>add</mat-icon>
+                    </button-->
+                    <label for="name" style="margin-right: 30px;  margin-left: 205px;">Parent </label>
+                    <select  [disabled] ="process.level=='Process'" style="width: 320px; height: 20px;" [(ngModel)]="process.parent"  class="form-control"  id="parent"   name="parent"  >
+                        <option label="--select something --"></option>
+                            <ng-container *ngIf="process.level=='Procedure'">
+                            <ng-container *ngFor="let c of process1" >
+                                <option  [ngValue]="c">{{c.name}}</option>
+                            </ng-container>
+                        </ng-container>
+                            <ng-container *ngIf="process.level=='Operation'">
+                        <option *ngFor="let c of process1" [ngValue]="c">{{c.name}}</option>
+                            
+                    </ng-container>
+                    </select>  
+                </div>
+                <div style="margin-bottom: 30px;">
+                    
+                    <label for="name" style="margin-right: 60px;  margin-left: 40px;">Entity*</label>
+                    <select  style="width: 320px; height: 20px;" [(ngModel)]="process.entity"  class="form-control"  id="entity"   name="entity" >
+                        <option label="--select something --"></option>
+                        <option *ngFor="let c of entity" [ngValue]="c.name">{{c.name}}</option>
+                    </select>
+                    <label for="file" style="margin-right: 30px;  margin-left: 200px;">Attachment</label>
+                    <input type="file"  multiple style="width: 320px; height: 50px;" [(ngModel)]="process.attachment"  class="form-control"  id="attachment"   name="attachment">
+                </div>
+                <br>
+                <br>
+                <div style="margin-left: 800px;">
+                <button mat-raised-button (click)="addProcess()" style="margin-right: 10px;background-color: cornflowerblue;" [disabled]="!processForm.form.valid">Save</button>
+                <button mat-raised-button routerLink="/home/process">Exit</button>
+                </div>
+            </form>
+</mat-card>

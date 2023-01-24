@@ -1,0 +1,57 @@
+<mat-card style="width:1100px;margin-left:auto; margin-right:auto;">
+    <br>
+    <h1 style="margin-bottom: 50px;">Update risk</h1>
+    <br>
+    <br>
+          <form (ngSubmit)="onSubmit()">
+                <div style="margin-bottom: 30px;">
+                    <label for="name" style="margin-right: 60px;  margin-left: 40px;">Name*</label>
+                    <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="risk.name"  class="form-control"  id="name"   name="name"  required #name="ngModel">
+                    <label for="Category" style="margin-right: 31px;  margin-left: 200px;">Category*</label>
+                    <select style="width: 310px; height: 20px;" [(ngModel)]="risk.category"  class="form-control"  id="category"   name="category" required>
+                        <option label="--select something --"></option>
+                        <option *ngFor="let c of category;" [ngValue]="c.name">{{c.name}}</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <label for="impact" style="margin-right: 45px;  margin-left: 40px;">Severity*</label>
+                    <select style="width: 315px; height: 20px;" [(ngModel)]="risk.impact"  class="form-control"  id="impact"   name="impact" required #impact="ngModel">
+                        <option label="--select something --"></option>
+                        <option value=1>Insignificant</option>
+                        <option value=2>Minor</option>
+                        <option value=3>Moderate</option>
+                        <option value=4>Major</option>
+                        <option value=5>Catastrophic</option>
+                    </select>
+                    <label for="prob" style="margin-right: 30px;  margin-left: 200px;">Likelihood*</label>
+                    <select style="width: 310px; height: 20px;" [(ngModel)]="risk.probability"  class="form-control"  id="prob"   name="prob" required #prob="ngModel">
+                        <option label="--select something --"></option>
+                        <option value=1>Rare</option>
+                        <option value=2>Possible</option>
+                        <option value=3>Likely</option>
+                        <option value=4>Often</option>
+                        <option value=5>Frequent</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <label for="process" style="margin-right: 45px;  margin-left: 40px;">Process*</label>
+                    <mat-form-field style="width: 310px; height: 15px;">
+                        <mat-select  [(ngModel)]="risk.process"  class="form-control"  id="process"   name="process" required multiple>
+                            <mat-option  *ngFor="let c of process1;" [value]="c.name">{{c.name}}</mat-option>
+                        </mat-select>
+                         </mat-form-field>
+                         <label for="last" style="margin-right: 30px;  margin-left: 200px;">Last update*</label>
+                         <input type="date" style="width: 300px; height: 20px;" [(ngModel)]="risk.last_update"  class="form-control"  id="last"   name="last" required #last="ngModel" value="2022-01-01" min="2022-01-01" >
+                </div>
+                 <div style="margin-bottom: 30px; display: flex;">
+                    <label for="description" style="margin-right: 65px; margin-left: 40px; ">Cause</label>
+                    <textarea style="width: 930px; height: 80px;" id="description" name="description" rows="7" cols="40"[(ngModel)]="risk.cause"  class="form-control"  id="description"   name="description"></textarea>
+                </div>
+                <br>
+                <br>
+                <div style="margin-left: 800px;">
+                    <button type="submit" mat-raised-button  style="margin-right: 10px;background-color: cornflowerblue;" (click)="calculate()">Submit</button>
+                    <button mat-raised-button routerLink="/home/risk">Exit</button>
+                </div>
+            </form>
+</mat-card>

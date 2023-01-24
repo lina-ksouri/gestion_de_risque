@@ -1,0 +1,39 @@
+<mat-card style="width:1100px;margin-left:auto; margin-right:auto;">
+    <h1 style="margin-top: 10px; margin-bottom: 50px;">Process Details</h1> 
+    
+    <div *ngIf="process1">
+            <table style="width:500px; height: 350px; margin-left: 300px;">
+                <tr>
+                  <td class="details">Name:</td>
+                  <td>{{process1.name}}</td>
+                </tr>
+                  <tr>
+                    <td class="details">Level:</td>
+                    <td>{{process1.level}}</td>
+                  </tr>
+                  <tr>
+                    <td class="details">Parent:</td>
+                    <td><div *ngIf="process1.parent==null"> ____ </div>
+                      <div *ngIf="process1.parent!=null">{{process1?.parent?.name}} </div></td>
+                  </tr>
+                  <tr>
+                    <td class="details">Entity:</td>
+                    <td>{{process1.entity}}</td>
+                  </tr>
+                  <tr>
+                    <td class="details">Owner:</td>
+                    <td>{{process1?.owner?.name}}</td>
+                  </tr>
+                  <tr>
+                    <td class="details">Attachment:</td>
+                    <td><a href class="btn btn-default" >{{ process1.name_attachment }}</a></td>
+                  </tr>
+                  
+                  
+              </table>
+    </div>
+    
+    <br>
+    <br>
+    <button (click)="list()" mat-raised-button  style="margin-right: 10px;background-color: cornflowerblue;">Back</button><br>
+    </mat-card>

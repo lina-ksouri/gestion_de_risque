@@ -1,0 +1,35 @@
+<mat-card>
+<h1 style="margin-top: 10px; margin-bottom: 50px;">Entity Type Details</h1> 
+
+<div *ngIf="type">
+        <table style="width:600px; height: 250px; margin-left: 350px;">
+            <tr>
+              <td class="details">Name:</td>
+              <td>{{type.name}}</td>
+            </tr>
+              <tr>
+                <td class="details">Compliance Score Percentage:</td>
+                <td><div *ngIf="type.compliance_Score_Percentage==null"> _____ </div>
+                  <div *ngIf="type.compliance_Score_Percentage!=null">{{ type.compliance_Score_Percentage }}% </div></td>
+              </tr>
+              <tr>
+                <td class="details">Class:</td>
+                <td >{{type.classe[0].name}}</td>
+              </tr>
+              <tr>
+                <td class="details">Active:</td>
+                <td><div *ngIf="type.active==false"> <mat-icon style="color:red;">cancel</mat-icon> </div>
+                    <div *ngIf="type.active"> <mat-icon style="color:green;">check_circle</mat-icon></div></td>
+              </tr>
+              <tr>
+                <td class="details">Description:</td>
+                <td><div *ngIf="type.description==null"> _____ </div>
+                  <div *ngIf="type.description!=null">{{type.description}}</div></td>
+              </tr>
+          </table>
+</div>
+
+<br>
+<br>
+<button (click)="list()" mat-raised-button  style="margin-right: 10px;background-color: cornflowerblue;">Back</button><br>
+</mat-card>

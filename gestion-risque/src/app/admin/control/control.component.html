@@ -1,0 +1,115 @@
+<mat-card style="width:1100px;margin-left:auto; margin-right:auto;">
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Control List" style="margin-right: 50%;"> <h1>Control List</h1>
+            <br>
+            <!--button mat-raised-button  style="margin-left: 10px; margin-bottom: 30px; background-color: cornflowerblue" routerLink="add">Create</button-->
+            <br><br>
+        <div class="card my-5">
+            <div class="card-body">
+              <table class="table table-bordered table-striped" style="margin-left:auto; margin-right:auto;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th></th>
+                    <th >Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let control of control
+              let i = index">
+                    <td>{{ control.id_control }}</td>
+                    <td>{{control.name}}</td>
+                    <td>{{control.description}}</td>
+                      <td><button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                      <mat-icon style="margin-right: 20px; margin-left: 20px;" (click)="controlDetails(control.name)">visibility</mat-icon></button>
+                      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                        <mat-icon (click)="updateControl(control.name)">edit</mat-icon>
+                    </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Create">
+            <h1 style="margin-bottom: 50px;">Update Or Create</h1>
+            <br>
+            <br>
+            <form (ngSubmit)="onSubmit()" #ControlForm="ngForm">
+                <div style="margin-bottom: 30px;">
+                    <label for="name" style="margin-right: 60px;  margin-left: 20px;">Name*</label>
+                    <input  type="text"  style="width: 300px; height: 25px;" class="form-control"  id="name" name="name" [(ngModel)]="controll.name" required #name="ngModel">
+                    <label for="risk" style="margin-right: 30px;  margin-left: 200px;">Risk name</label>
+                    <mat-form-field style="width: 300px; height: 15px;" >
+                    <mat-select  class="form-control"  id="risk"   name="risk" [(ngModel)]="controll.risk" required multiple >
+                        <mat-option  *ngFor="let c of risk" [value]="c">{{c.name}}</mat-option>
+                    </mat-select>
+                     </mat-form-field>
+
+               </div>
+               <div style="margin-bottom: 30px;">
+                <label for="name" style="margin-right: 30px;  margin-left: 20px;">User name</label>
+                <select style="width: 300px; height: 25px;" [(ngModel)]="controll.user_name"  class="form-control"  id="type"   name="type" required>
+                    <option label="--select something --"></option>
+                        <option *ngFor="let c of user" [ngValue]="c.name">{{c.name}}</option>
+                    </select>   
+                <label for="attestation" style="margin-right: 30px;  margin-left: 200px;">Attestation </label>
+                <select  style="width: 300px; height: 25px;" [(ngModel)]="controll.attestation"  class="form-control"  id="attestation"   name="attestation" >
+                    <option label="--select something --"></option>
+                    <option value="Event_Driven_Daily">Event Driven Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quarterly">Quarterly</option>
+                    <option value="Semi_Annually">Semi-Annually</option>
+                    <option value="Annually">Annually</option>
+                </select>
+                <br><label style="margin-left: 630px;">frequency</label> 
+            </div>
+            <div style="margin-bottom: 30px;" *ngIf="controll.name=='Risk Reduction'">
+                <label for="impact" style="margin-right: 45px;  margin-left: 20px;">Severity*</label>
+                <select style="width: 300px; height: 25px;" [(ngModel)]="risque.impact"  class="form-control"  id="impact"   name="impact" required>
+                    <option label="--select something --"></option>
+                    <option value=1>Insignificant</option>
+                    <option value=2>Minor</option>
+                    <option value=3>Moderate</option>
+                    <option value=4>Major</option>
+                    <option value=5>Catastrophic</option>
+                </select>
+                <label for="prob" style="margin-right: 30px;  margin-left: 200px;">Likelihood*</label>
+                <select style="width: 300px; height: 25px;" [(ngModel)]="risque.probability"  class="form-control"  id="prob"   name="prob" required>
+                    <option label="--select something --"></option>
+                    <option value=1>Rare</option>
+                    <option value=2>Possible</option>
+                    <option value=3>Likely</option>
+                    <option value=4>Often</option>
+                    <option value=5>Frequent</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <label for="attestation" style="margin-right: 15px;  margin-left: 20px;">Mastery level</label>
+                <select  style="width: 300px; height: 25px;" [(ngModel)]="risque.niv_maitrise"  class="form-control"  id="maitrise"   name="maitrise" >
+                    <option label="--select something --"></option>
+                    <option value=1>Not fiable</option>
+                    <option value=2>Informal</option>
+                    <option value=3>Standardized</option>
+                    <option value=4>Evaluated</option>
+                    <option value=5>Optimized</option>
+                </select>
+
+                </div>
+            <br>
+                <br>
+
+                <div style="margin-left: 800px;">
+                    <button type="submit" mat-raised-button  style="margin-right: 10px;background-color: cornflowerblue;" [disabled]="!ControlForm.form.valid" (click)="calculate()">Submit</button>
+                    <button mat-raised-button routerLink="/home/entity">Exit</button>
+                </div>
+            </form>
+
+        </mat-tab>
+      </mat-tab-group>
+   
+</mat-card>

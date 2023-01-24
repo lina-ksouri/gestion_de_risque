@@ -1,0 +1,47 @@
+<mat-card style="width:1100px;margin-left:auto; margin-right:auto;">
+    <br>
+    <h1 style="margin-bottom: 50px;">Update Entity</h1>
+    <br>
+    <br>
+           <form (ngSubmit)="onSubmit()">
+            <div style="margin-bottom: 30px;">
+                <label for="name" style="margin-right: 60px;  margin-left: 40px;">Name*</label>
+                <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="entity.name"  class="form-control"  id="name"   name="name"  required #name="ngModel">
+                <label for="compliance_Score_Percentage" style="margin-right: 31px;  margin-left: 200px;">Owned by*</label>
+                <mat-form-field style="width: 310px; height: 15px;">
+                <mat-select [(ngModel)]="entity.owned_by"  class="form-control"  id="owned_by"   name="owned_by"  required multiple>
+                    <mat-option  *ngFor="let c of user" [value]="c">{{c.name}}</mat-option>
+                </mat-select>
+                 </mat-form-field>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <label for="name" style="margin-right: 60px;  margin-left: 40px;">Types*</label>
+                <select  style="width: 315px; height: 20px;" [(ngModel)]="entity.type"  class="form-control"  id="type"   name="type" [value]="defaultSelect" >
+                    <option label="--select something --"></option>
+                    <option *ngFor="let c of type" [ngValue]="c">{{c.name}}</option>
+                </select>
+                <label for="name" style="margin-right: 50px;  margin-left: 200px;">Classes*</label>
+                <select  style="width: 318px; height: 20px;" [(ngModel)]="entity.classe"  class="form-control"  id="classe"   name="classe" >
+                    <option label="--select something --"></option>
+                    <option *ngFor="let c of entity?.type?.classe;" [ngValue]="c">{{c.name}}</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <label for="name" style="margin-right: 50px;  margin-left: 40px;">Location</label>
+                <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="entity.location"  class="form-control"  id="location"   name="location" >
+                <label for="active" style="margin-right: 65px;  margin-left: 200px;">Active</label>
+                <input type="checkbox" [(ngModel)]="entity.active" [ngModelOptions]="{standalone: true}" id="active" > 
+
+            </div>
+            <div style="margin-bottom: 30px; display: flex;">
+                <label for="description" style="margin-right: 30px; margin-left: 40px; ">Description</label>
+                <textarea style="width: 950px; height: 80px;" id="description" name="description" rows="7" cols="40"[(ngModel)]="entity.description"  class="form-control"  id="description"   name="description"></textarea>
+            </div>
+            <br>
+                <br>
+                <div style="margin-left: 800px;">
+                    <button type="submit" mat-raised-button  style="margin-right: 10px;background-color: cornflowerblue;">Submit</button>
+                    <button mat-raised-button routerLink="/home/entity">Exit</button>
+                </div>
+            </form>
+</mat-card>

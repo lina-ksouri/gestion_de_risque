@@ -1,0 +1,392 @@
+
+  
+  label{
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .input-text-custom {
+    background: #FFFFFF;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.26);
+    border-radius: 3px;
+    font-size: 16px;
+    border: 0;
+    height: 35px;
+    width: calc(100% - 6px);
+    border: 1px solid #d8d8d8;
+    padding-left:5px;
+    display:block;
+    margin:auto;
+    margin-top: 5px;
+  }
+  
+  .btn-link{
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    color: cornflowerblue;
+    
+  }
+  
+  .help-block, .alert-danger{
+    background-color: red;
+    color: white;
+    padding-left: 3px;
+    font-weight: bold;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+  }
+  
+  .form-submit-button{
+    background-image: linear-gradient(180deg, #536dbf 32%, #4851b7 92%)!important;
+    background-color:#4851b7!important;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.26);
+    height:40px;
+    width:calc(100% + 0px);
+    display:block;
+    margin:auto;
+    color: white!important;
+    outline: none;
+    border:none;
+    margin-top: 10px;
+  }
+  
+  .card-container.card {
+    max-width: 350px!important;
+    padding: 40px 40px;
+  }
+  
+  .btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+  }
+  
+  .card {
+    background-color: #F7F7F7;
+ 
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+  
+  .profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+  }
+  
+  .form-signin #inputEmail,
+  .form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+  }
+  
+  .form-signin input[type=email],
+  .form-signin input[type=password],
+  .form-signin input[type=text],
+  .form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+  }
+  
+  .btn.btn-signin {
+
+    background-color: rgb(104, 145, 162);
+   
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+  }
+  
+  .btn.btn-signin:hover,
+  .btn.btn-signin:active,
+  .btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+  }
+  
+
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+  
+  input, button {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  }
+  
+  $contW: 900px;
+  $imgW: 260px;
+  $formW: $contW - $imgW;
+  $switchAT: 1.2s;
+  
+  $inputW: 260px;
+  $btnH: 36px;
+  
+  $diffRatio: ($contW - $imgW) / $contW;
+  
+  @mixin signUpActive {
+    .cont.s--signup & {
+      @content;
+    }
+  }
+  
+  .tip {
+    font-size: 20px;
+    margin: 40px auto 50px;
+    text-align: center;
+  }
+  .image {
+    margin-left:100px;
+    float:left; 
+    height:40px;
+    width:40px; 
+    }
+    .container2 {
+      width:100%;
+      height:auto;
+      padding:1%;
+  }
+  .cont {
+    
+    overflow: hidden;
+    position: relative;
+    width: 500px;
+    height: 700px;
+    //margin: 0 auto 100px;
+    background:transparent;
+    margin-left: 800px;
+  }
+  
+  .form {
+    position: relative;
+    width: 490px;
+    height: 100%;
+    transition: transform $switchAT ease-in-out;
+    padding: 20px 30px 0;
+  }
+  
+  .sub-cont {
+    overflow: hidden;
+    position: absolute;
+    left: $formW;
+    top: 0;
+    width: $contW;
+    height: 100%;
+    padding-left: $imgW;
+    background: #fff;
+    transition: transform $switchAT ease-in-out;
+  
+    @include signUpActive {
+      transform: translate3d($formW * -1,0,0);
+    }
+  }
+  
+  button {
+    display: block;
+    margin: 0 auto;
+    width: $inputW;
+    height: $btnH;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+ 
+  
+  h2 {
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    width: $inputW;
+    margin: 25px auto 0;
+    text-align: center;
+  
+    span {
+      font-size: 12px;
+      color: #cfcfcf;
+      text-transform: uppercase;
+    }
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    text-align: center;
+  }
+  
+  .forgot-pass {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: #cfcfcf;
+  }
+  
+  .submit {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background: #d4af7a;
+    text-transform: uppercase;
+  }
+  
+  .fb-btn {
+    border: 2px solid #d3dae9;
+    color: darken(#d3dae9, 20%);
+  
+    span {
+      font-weight: bold;
+      color: darken(#768cb6, 20%);
+    }
+  }
+  
+  .sign-in {
+    transition-timing-function: ease-out;
+  
+    @include signUpActive {
+      transition-timing-function: ease-in-out;
+      transition-duration: $switchAT;
+      transform: translate3d($formW,0,0);
+    }
+  }
+  
+  .sign-up {
+    transform: translate3d($contW * -1,0,0);
+  
+    @include signUpActive {
+      transform: translate3d(0,0,0);
+    }
+  }
+  
+  .signup {
+    font-size: 1.2rem;
+    color: #ABA8AE;
+    text-align: center;
+    a{
+      color: cornflowerblue;
+      //color: #fff;
+      cursor: pointer;
+    }
+  }
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(https://media.istockphoto.com/photos/logon-online-form-cyber-security-concept-image-picture-id1299923580?b=1&k=20&m=1299923580&s=170667a&w=0&h=5_NePltlR7dsYkhXJPd_h_ZJY6eBS2DYqA65YFaP5sQ=);
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+
+
+.header{
+	position: absolute;
+	top: 200px;
+	left: 250px;
+	z-index: 2;
+}
+
+.header img{
+	float: left;
+	width: 400px;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.header h3{
+	color:white !important;
+  font-size: large;
+}
+ 
+.signup {
+  font-size: 1.2rem;
+  color: #ABA8AE;
+}
+
+
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}

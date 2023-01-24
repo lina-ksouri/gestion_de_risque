@@ -1,0 +1,32 @@
+<mat-card style="width:1100px;margin-left:auto; margin-right:auto;">
+    <br>
+    <h1 style="margin-bottom: 50px;">Update Employe</h1>
+    <br>
+    <br>
+          <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                <div style="margin-bottom: 30px;">
+                    <label for="name" style="margin-right: 60px;  margin-left: 40px;">Name*</label>
+                    <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="user.name"  class="form-control"  id="name"   name="name"   #name="ngModel">
+                    <label for="Category" style="margin-right: 59px;  margin-left: 200px;">Email*</label>
+                    <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="user.email"  class="form-control"  id="mail"   name="mail"   #mail="ngModel">
+                </div>
+                 <div style="margin-bottom: 30px; display: flex;">
+                    <label for="description" style="margin-right: 65px; margin-left: 40px; ">Phone</label>
+                    <input  type="text"  style="width: 310px; height: 15px;" [(ngModel)]="user.phone"  class="form-control"  id="phone"   name="phone"   #phone="ngModel">
+                    <div *ngIf="user.role != 'MANAGER'">
+                    <label for="Category" style="margin-right: 65px;  margin-left: 200px;">Role</label>
+                    <select  style="width: 320px; height: 25px;" [(ngModel)]="user.role"  class="form-control"  id="role"   name="role" #role="ngModel" >
+                        <option value="EMPLOYEE">Employe</option>
+                        <option value="MANAGER">Manager</option>
+                        
+                    </select>
+                </div>
+                    </div>
+                <br>
+                <br>
+                <div style="margin-left: 800px;">
+                    <button type="submit" mat-raised-button  style="margin-right: 10px;background-color: cornflowerblue;" [disabled]="!userForm.form.valid">Submit</button>
+                    <button mat-raised-button (click)="gotoList()">Exit</button>
+                </div>
+            </form>
+</mat-card>
